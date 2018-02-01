@@ -22,8 +22,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
 
-    this.mediaService.toggleVisib('Register', false);
-    this.mediaService.toggleVisib('Login', true);
+    this.mediaService.toggleVisib('register', false);
+    this.mediaService.toggleVisib('login', true);
   }
 
   register(user: User) {

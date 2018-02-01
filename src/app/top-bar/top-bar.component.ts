@@ -27,19 +27,19 @@ export class TopBarComponent implements OnInit {
     // apparently this is a no-no...
     // however, the 'official' way didn't work for me (I suspect it's because the elements that need to
     // listen to the events are regular li-elements instead of Components)
-    this.mediaService.toggleFront.subscribe(bool => {
+    this.mediaService.frontEmitter.subscribe(bool => {
       this.toggleFront(bool);
     });
 
-    this.mediaService.toggleLogin.subscribe(bool => {
+    this.mediaService.loginEmitter.subscribe(bool => {
       this.toggleLogin(bool);
     });
 
-    this.mediaService.toggleRegister.subscribe(bool => {
+    this.mediaService.registerEmitter.subscribe(bool => {
       this.toggleRegister(bool);
     });
 
-    this.mediaService.toggleLogout.subscribe(bool => {
+    this.mediaService.logoutEmitter.subscribe(bool => {
       this.toggleLogout(bool);
     });
   } // end ngOnInit()

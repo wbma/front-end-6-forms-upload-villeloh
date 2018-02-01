@@ -9,10 +9,10 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class MediaService {
 
-  @Output() toggleRegister = new EventEmitter<boolean>();
-  @Output() toggleFront = new EventEmitter<boolean>();
-  @Output() toggleLogin = new EventEmitter<boolean>();
-  @Output() toggleLogout = new EventEmitter<boolean>();
+  @Output() registerEmitter = new EventEmitter<boolean>();
+  @Output() frontEmitter = new EventEmitter<boolean>();
+  @Output() loginEmitter = new EventEmitter<boolean>();
+  @Output() logoutEmitter = new EventEmitter<boolean>();
 
   status: string;
   baseApiUrl = 'http://media.mw.metropolia.fi/wbma/';
@@ -68,6 +68,6 @@ export class MediaService {
 
   toggleVisib(elemName: string, isElemVisible: boolean) {
 
-    this['toggle' + elemName].emit(isElemVisible);
+    this[elemName.toLowerCase() + 'Emitter'].emit(isElemVisible);
   }
 } // end class

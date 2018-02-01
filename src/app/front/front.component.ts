@@ -18,10 +18,10 @@ export class FrontComponent implements OnInit {
     this.mediaService.getUserStatus()
     .subscribe( res => {
 
-      this.mediaService.toggleVisib('Register', false);
-      this.mediaService.toggleVisib('Front', false);
-      this.mediaService.toggleVisib('Login', false);
-      this.mediaService.toggleVisib('Logout', true);
+      this.mediaService.toggleVisib('register', false);
+      this.mediaService.toggleVisib('front', false);
+      this.mediaService.toggleVisib('login', false);
+      this.mediaService.toggleVisib('logout', true);
 
     }, (error: HttpErrorResponse) => this.router.navigate(['login']));
   } // end ngOnInit()

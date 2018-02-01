@@ -23,10 +23,10 @@ export class LoginComponent implements OnInit {
       console.log(error.error.message);
 
       // this seems rather clumsy... there must be a better way to toggle the visibility of the top bar items
-      this.mediaService.toggleVisib('Register', true);
-      this.mediaService.toggleVisib('Front', false);
-      this.mediaService.toggleVisib('Login', false);
-      this.mediaService.toggleVisib('Logout', false);
+      this.mediaService.toggleVisib('register', true);
+      this.mediaService.toggleVisib('front', false);
+      this.mediaService.toggleVisib('login', false);
+      this.mediaService.toggleVisib('logout', false);
 
     });
   }  // end ngOnInit()
