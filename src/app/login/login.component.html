@@ -1,0 +1,7 @@
+<input #userName>
+<br>
+<input type="password" #pw>
+<br>
+<button (click)="login(userName.value, pw.value)">Login</button>
+<br>
+<div>{{ this.mediaService.status }}</div>

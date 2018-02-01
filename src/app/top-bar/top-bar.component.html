@@ -1,0 +1,16 @@
+<nav>
+  <ul>
+    <li [class.hidden]="!frontVisib">
+        <a [routerLink] = "'/front'">Front page</a>
+    </li>
+    <li [class.hidden]="!loginVisib">
+        <a [routerLink] = "'/login'">Login</a>
+    </li>
+    <li [class.hidden]="!registerVisib">
+        <a [routerLink] = "'/register'">Register</a>
+    </li>
+    <li [class.hidden]="!logoutVisib">
+      <a [routerLink] = "" (click) = 'logout()'>Logout</a>
+  </li>
+  </ul>
+</nav>
