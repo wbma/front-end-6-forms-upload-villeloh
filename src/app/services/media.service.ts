@@ -13,6 +13,7 @@ export class MediaService {
   @Output() frontEmitter = new EventEmitter<boolean>();
   @Output() loginEmitter = new EventEmitter<boolean>();
   @Output() logoutEmitter = new EventEmitter<boolean>();
+  @Output() uploadEmitter = new EventEmitter<boolean>();
 
   status: string;
   baseApiUrl = 'http://media.mw.metropolia.fi/wbma/';
@@ -51,13 +52,23 @@ export class MediaService {
     this.router.navigate(['login']);
   }
 
+  uploadFile(formData: FormData) {
+
+    const url = this.baseApiUrl + 'media';
+
+    // adding Content-Type: multipart/form-data gives an error... while if it's left out, it's added
+    // automatically without any problems. -.-
+    this.options = {
+      headers: new HttpHeaders().set('x-access-token', localStorage.getItem('token'))
+    };
+
+    return this.http.post(url, formData, this.options);
+  } // end uploadFile()
+
   getUserStatus() {
 
-    let token = localStorage.getItem('token');
-
-    if (token == null || token === undefined) {
-      token = ''; // non-ideal... should return some type of observable, on which subscribe() can be called without errors
-    }
+    const token = localStorage.getItem('token') || '';
+    // non-ideal... if token == null, should return some type of observable, on which subscribe() can be called without errors
 
     const options = {
       headers: new HttpHeaders().set('Content-Type', 'application/json').set('x-access-token', token)
@@ -66,6 +77,7 @@ export class MediaService {
     return this.http.get(this.baseApiUrl + 'users/user', options);
   } // end getUserStatus()
 
+  // toggles the visibility of the top-bar link elements
   toggleVisib(elemName: string, isElemVisible: boolean) {
 
     this[elemName.toLowerCase() + 'Emitter'].emit(isElemVisible);

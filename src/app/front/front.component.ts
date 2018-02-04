@@ -21,6 +21,7 @@ export class FrontComponent implements OnInit {
       this.mediaService.toggleVisib('register', false);
       this.mediaService.toggleVisib('front', false);
       this.mediaService.toggleVisib('login', false);
+      this.mediaService.toggleVisib('upload', true);
       this.mediaService.toggleVisib('logout', true);
 
     }, (error: HttpErrorResponse) => this.router.navigate(['login']));

@@ -36,5 +36,5 @@ export class RegisterComponent implements OnInit {
     }
     ,
     (error: HttpErrorResponse) => this.status = error.error.message);
-  } // end onSubmit()
+  } // end register()
 } // end class

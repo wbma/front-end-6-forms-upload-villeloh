@@ -9,6 +9,9 @@
     <li [class.hidden]="!registerVisib">
         <a [routerLink] = "'/register'">Register</a>
     </li>
+    <li [class.hidden]="!uploadVisib">
+      <a [routerLink] = "'/upload'">Upload file</a>
+  </li>
     <li [class.hidden]="!logoutVisib">
       <a [routerLink] = "" (click) = 'logout()'>Logout</a>
   </li>

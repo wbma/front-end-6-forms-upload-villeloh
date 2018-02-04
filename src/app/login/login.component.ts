@@ -17,7 +17,9 @@ export class LoginComponent implements OnInit {
     // check if the user has the correct auth token (i.e., whether the user is logged in or not)
     this.mediaService.getUserStatus()
     .subscribe( res => {
-    this.router.navigate(['front']);
+
+      this.router.navigate(['front']);
+
     }, (error: HttpErrorResponse) => {
 
       console.log(error.error.message);
@@ -27,6 +29,7 @@ export class LoginComponent implements OnInit {
       this.mediaService.toggleVisib('front', false);
       this.mediaService.toggleVisib('login', false);
       this.mediaService.toggleVisib('logout', false);
+      this.mediaService.toggleVisib('upload', false);
 
     });
   }  // end ngOnInit()
